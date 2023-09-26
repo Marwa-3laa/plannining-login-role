@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import{LoginPage} from '../pages/login';
 
-// valid login
+
+//valid login
 test('valid login', async ({ page }) => {
     const login = new LoginPage(page)
     await login.gotoLoginPage()
@@ -15,6 +16,8 @@ test('valid login', async ({ page }) => {
 //   await page.getByRole('button', { name: 'Log in' }).click();
 await expect(page).toHaveURL(/.*business-form/)
 });
+
+
 
 // invalid login
 test('invalid login', async ({ page }) => {
@@ -32,6 +35,9 @@ test('invalid login', async ({ page }) => {
   await expect(locator).toHaveText(/Invalid user name or password/);
   await page.getByRole('button', { name: 'Ok' }).click();
 });
+
+
+
 
 // invalid add repeated role
 test('invalid add repeated role', async ({ page }) => {
@@ -58,6 +64,9 @@ test('invalid add repeated role', async ({ page }) => {
   await page.waitForTimeout(2000);
   await page.getByLabel('Close').click();
 });
+
+
+
 // valid edit role
 test('edit-role', async ({ page }) => {
     const login = new LoginPage(page)
